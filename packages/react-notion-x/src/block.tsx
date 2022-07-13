@@ -384,7 +384,7 @@ export const Block: React.FC<BlockProps> = (props) => {
 
       if (block.format?.toggleable) {
         if (components.Toggle) {
-          return <components.Toggle {...{ blockId, children, headerBlock }} />
+          return <components.Toggle {...{ blockId, children, headerBlock }} block={block as unknown as types.ToggleBlock} />
         }
         return (
           <details className={cs('notion-toggle', blockId)}>
@@ -681,7 +681,7 @@ export const Block: React.FC<BlockProps> = (props) => {
 
     case 'toggle':
       if (components.Toggle) {
-        return <components.Toggle {...{ blockId, children, block }} />
+        return <components.Toggle {...{ blockId, children}} block={block as types.ToggleBlock}/>
       }
       return (
         <details className={cs('notion-toggle', blockId)}>
