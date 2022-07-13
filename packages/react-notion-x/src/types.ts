@@ -59,6 +59,9 @@ export interface NotionComponents {
   // optional next.js-specific overrides
   nextImage?: any
   nextLink?: any
+
+  // custom
+  Toggle?: any
 }
 
 export interface CollectionViewProps {

@@ -383,6 +383,9 @@ export const Block: React.FC<BlockProps> = (props) => {
       }
 
       if (block.format?.toggleable) {
+        if (components.Toggle) {
+          return <components.Toggle {...{ blockId, children, headerBlock }} />
+        }
         return (
           <details className={cs('notion-toggle', blockId)}>
             <summary>{headerBlock}</summary>
@@ -677,12 +680,14 @@ export const Block: React.FC<BlockProps> = (props) => {
     }
 
     case 'toggle':
+      if (components.Toggle) {
+        return <components.Toggle {...{ blockId, children, block }} />
+      }
       return (
         <details className={cs('notion-toggle', blockId)}>
           <summary>
             <Text value={block.properties?.title} block={block} />
           </summary>
-
           <div>{children}</div>
         </details>
       )
